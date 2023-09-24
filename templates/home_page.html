@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="static/cupcakes.css"/>
+</head>
+<body>
+    <div class="col-md-12 text-center">
+        <button class="text-center">Show me all the cupcakes, yummy!</button>
+    </div>
+    <div class="container"  class="h-100 d-flex align-items-center justify-content-center">
+        <div class="row">
+            <div class="col-10 col-sm-8 col-lg-5">
+                <h5 class="text-muted text-center">List cupcakes</h5>
+                <ul class="list-group" id="cupcakes_ul"></ul>
+            </div>
+        </div> 
+    </div>
+    <h3>Add a new cupcake below</h4>
+    <form id="cupcake-form">
+        {{form.hidden_tag()}}
+        {% for field in form 
+            if field.widget.input_type != 'hidden' %}
+            <div class="form-group">
+                {{field.label}}
+                {{field(class_= "form-control")}}
+            </div>
+        {% endfor %}
+        <input id ="submit" type="submit" class="btn btn-success btn-lg" value="Add Cupcake"> 
+    </form>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.19.2/axios.min.js"
+    integrity="sha256-T/f7Sju1ZfNNfBh7skWn0idlCBcI3RwdLSS4/I7NQKQ=" crossorigin="anonymous"></script>
+  <script
+    src="https://code.jquery.com/jquery-3.4.1.min.js"
+    integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
+    crossorigin="anonymous"></script>
+  <script src="static/cupcakes.js"></script>
+</body>
+</html>
